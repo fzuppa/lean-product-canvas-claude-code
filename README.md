@@ -20,6 +20,19 @@ Para instalarlo a nivel usuario (disponible en todos tus proyectos) en vez de so
 npx skills add fzuppa/lean-product-canvas-claude-code -g
 ```
 
+`npx skills add` solo instala el skill (`SKILL.md` + `references/`) — no registra el comando `/lpd`, porque los comandos son un mecanismo aparte de los skills en Claude Code y no lo maneja esta CLI. Si lo querés, copiá `commands/lpd.md` desde donde haya quedado instalado el skill hacia la carpeta de comandos:
+
+```bash
+# si instalaste a nivel proyecto (sin -g):
+cp .claude/skills/lean-product-canvas/commands/lpd.md .claude/commands/lpd.md
+
+# si instalaste a nivel usuario (con -g):
+mkdir -p ~/.claude/commands
+cp ~/.claude/skills/lean-product-canvas/commands/lpd.md ~/.claude/commands/lpd.md
+```
+
+(Ajustá la ruta de origen si instalaste para otro agente — revisá con `npx skills list` dónde quedó el skill.)
+
 ### Opción 2: manual
 
 1. Copiá esta carpeta completa (`SKILL.md`, `README.md`, `references/` y `commands/`) a la carpeta de skills de Claude Code:
